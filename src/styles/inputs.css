@@ -1,0 +1,27 @@
+.inputt {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    border: 1px solid #e6e8ef;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: border-color 200ms ease;
+    color: #515a61;
+    outline: none;
+}
+.inputt::placeholder {
+    color: #9dafbd;
+}
+.inputt:hover {
+    border-color: #3cf;
+}
+.inputt:focus {
+    border-color: #3cf;
+    background-color: rgb(195, 240, 255);
+    color: #515a61;
+}
+
+.form-group p {
+    margin-bottom: 0.5em;
+}

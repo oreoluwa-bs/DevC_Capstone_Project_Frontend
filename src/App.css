@@ -1,22 +1,101 @@
-.App {
-  text-align: center;
+:root {
+  --blue: #5b78c7; 
+  --fsdh-light-blue: #009ade; 
+  --fsdh-lighter-blue: #acd8f2; 
+  --fsdh-burgundy: #a12538; 
+  --fsdh-gray: #757575; 
+  --lightest-gray: rgb(235, 235, 235);
+}
+@font-face {
+  font-family: FranklinGothicMedium;
+  src: url(./assets/fonts/FranklinGothic-Medium.ttf);
+}
+@font-face {
+  font-family: FranklinGothicBook;
+  src: url(./assets/fonts/FranklinGothic-Book.TTF);
+}
+@font-face {
+  font-family: FranklinGothicDemi;
+  src: url(./assets/fonts/FranklinGothic-Demi.TTF);
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+  font-size: 60px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2 {
+  font-size: 54px;
 }
 
-.App-link {
-  color: #09d3ac;
+h3 {
+  font-size: 48px;
+}
+
+h4 {
+  font-size: 36px;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+h6 {
+  font-size: 24px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: FranklinGothicDemi;
+  line-height: 1.2;
+}
+h1.bold, h2.bold, h3.bold, h4.bold, h5.bold, h6.bold{
+  font-family: FranklinGothicMedium;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+p.x-l-4{
+  font-size: 42px;
+}
+p.x-l-3{
+  font-size: 36px;
+}
+p.x-l-2{
+  font-size: 30px;
+}
+p.x-l{
+  font-size: 24px;
+}
+p.large{
+  font-size: 18px;
+}
+p.med{
+  font-size: 16px;
+}
+p.smal{
+  font-size: 14px;
+}
+p.x-s-4{
+  font-size: 7px;
+}
+p.x-s-3{
+  font-size: 9px;
+}
+p.x-s-2{
+  font-size: 10px;
+}
+p.x-s{
+  font-size: 12px;
+}
+p.bold{
+  font-family: FranklinGothicDemi;
+  line-height: 1.2;
+}
+p.block-heading{
+  font-family: FranklinGothicDemi;
+  line-height: 1.2;
+}
+span, p, a{
+  font-family: FranklinGothicBook;
+  line-height: 1.2;
+  font-size: 16px;
 }
