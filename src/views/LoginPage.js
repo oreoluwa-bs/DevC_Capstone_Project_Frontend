@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { signIn } from '../store/actions/authActions';
-import { Redirect } from 'react-router-dom';
 import '../styles/inputs.css';
 
 class LoginPage extends Component {
