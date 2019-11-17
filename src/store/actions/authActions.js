@@ -3,15 +3,15 @@ export const signIn = (credentials) => {
     return (dispatch, getState) => {
         const request = new Request(`${url}/signin`, {
             method: 'POST',
-            body: credentials,
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
+            body: JSON.stringify(credentials),
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
+            })
         });
-
         console.log(request);
-        fetch(request)
+        fetch(`${url}/signin`, request)
             .then((data) => {
                 dispatch({ type: 'LOGIN_SUCCESS', data });
             }).catch((err) => {
