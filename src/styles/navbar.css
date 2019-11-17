@@ -1,6 +1,7 @@
 .navbar {
     min-height: 50px;
-    background-color: var(--blue);
+    /* background-color: var(--blue); */
+    background: white;
     display: flex;
     align-items: center;
 }
@@ -22,16 +23,18 @@
 }
 
 .navbar .nav-links .nav-item .nav-link{
-    color: white;
+    /* color: white; */
+    color: var(--blue);
     text-decoration: none;
 }
 
-.navbar .nav-links .nav-item.btn:hover{
+.navbar .nav-links .nav-item.nav-btn:hover{
     background-color: transparent;
 }
 
-.navbar .nav-links .nav-item.btn .btn-sm{
-    color: white;
+.navbar .nav-links .nav-item.nav-btn .btn-sm{
+    /* color: white; */
+    color: var(--lighter-gray);
     text-decoration: none;
     border-radius: 6px;
     background-color: orange;

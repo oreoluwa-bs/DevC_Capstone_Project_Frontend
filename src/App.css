@@ -3,7 +3,8 @@
   --fsdh-light-blue: #009ade; 
   --fsdh-lighter-blue: #acd8f2; 
   --fsdh-burgundy: #a12538; 
-  --fsdh-gray: #757575; 
+  --gray: #555; 
+  --lighter-gray: rgb(180, 180, 180);
   --lightest-gray: rgb(235, 235, 235);
 }
 @font-face {
@@ -45,12 +46,12 @@ h6 {
 
 h1, h2, h3, h4, h5, h6{
   font-family: FranklinGothicDemi;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 h1.bold, h2.bold, h3.bold, h4.bold, h5.bold, h6.bold{
   font-family: FranklinGothicMedium;
   margin-bottom: 20px;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 p.x-l-4{
@@ -98,4 +99,12 @@ span, p, a{
   font-family: FranklinGothicBook;
   line-height: 1.2;
   font-size: 16px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-grey{
+  color: var(--lighter-gray);
 }
