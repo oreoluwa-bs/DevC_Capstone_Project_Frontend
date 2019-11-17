@@ -5,17 +5,24 @@ export const signIn = (credentials) => {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: new Headers({
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
+                'Content-Type': 'application/json',
             })
         });
-        console.log(request);
-        fetch(`${url}/signin`, request)
-            .then((data) => {
-                dispatch({ type: 'LOGIN_SUCCESS', data });
+        fetch(request)
+            .then((response) => {
+                response.json()
+                    .then((res) => {
+                        if (res.status === 'error') {
+                            dispatch({ type: 'LOGIN_FAILED', data: res });
+                        } else {
+                            dispatch({ type: 'LOGIN_SUCCESS', data: res });
+                        }
+                    })
+                    .catch((err) => {
+                        dispatch({ type: 'LOGIN_FAILED', data: err });
+                    });
             }).catch((err) => {
-                dispatch({ type: 'LOGIN_FAILED', err });
+                dispatch({ type: 'LOGIN_FAILED', data: err });
             });
     }
 }
@@ -24,18 +31,26 @@ export const signup = (credentials) => {
     return (dispatch, getState) => {
         const request = new Request(`${url}/create-user`, {
             method: 'POST',
-            body: credentials,
-            headers: {
+            body: JSON.stringify(credentials),
+            headers: new Headers({
                 'Content-Type': 'application/json',
-            },
+            })
         });
-
-        console.log(request);
         fetch(request)
-            .then((data) => {
-                dispatch({ type: 'SIGNUP_SUCCESS', data });
+            .then((response) => {
+                response.json()
+                    .then((res) => {
+                        if (res.status === 'error') {
+                            dispatch({ type: 'SIGNUP_FAILED', data: res });
+                        } else {
+                            dispatch({ type: 'SIGNUP_SUCCESS', data: res });
+                        }
+                    })
+                    .catch((err) => {
+                        dispatch({ type: 'SIGNUP_FAILED', data: err });
+                    });
             }).catch((err) => {
-                dispatch({ type: 'SIGNUP_FAILED', err });
+                dispatch({ type: 'SIGNUP_FAILED', data: err });
             });
     }
 }

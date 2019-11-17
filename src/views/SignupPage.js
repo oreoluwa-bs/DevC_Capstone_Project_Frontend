@@ -12,8 +12,7 @@ class SignUp extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        // this.props.signUp(this.state);
-        console.log(this.state);
+        this.props.signUp(this.state);
     }
 
     handleTextChange = (e) => {
@@ -27,21 +26,21 @@ class SignUp extends Component {
     render() {
         const { authError, auth } = this.props
 
-        // if (auth.id) { return <Redirect to='/' /> }
+        if (auth.userId) { return <Redirect to='/' /> }
 
         return (
-            <div className='container login-container'>
+            <div className='container login-container signup-container'>
                 <div className='form'>
                     <h4 className='text-center'>Create an account</h4>
                     <form onSubmit={this.handleSubmit}>
 
                         <div className='form-group'>
                             <div className='row'>
-                                <div className='col-xs-6'>
+                                <div className='col-xs-12 col-sm-6'>
                                     <p>First name:</p>
                                     <input type='text' className='form-input' id='firstname' placeholder='John' onChange={this.handleTextChange} required />
                                 </div>
-                                <div className='col-xs-6'>
+                                <div className='col-xs-12 col-sm-6'>
                                     <p>Last name:</p>
                                     <input type='text' className='form-input' id='lastname' placeholder='Doe' onChange={this.handleTextChange} required />
                                 </div>
@@ -50,11 +49,11 @@ class SignUp extends Component {
 
                         <div className='form-group'>
                             <div className='row'>
-                                <div className='col-xs-6'>
+                                <div className='col-xs-12 col-sm-6'>
                                     <p>Department:</p>
                                     <input type='text' className='form-input' id='department' placeholder='Accounting' onChange={this.handleTextChange} required />
                                 </div>
-                                <div className='col-xs-6'>
+                                <div className='col-xs-12 col-sm-6'>
                                     <p>Job role:</p>
                                     <input type='text' className='form-input' id='jobrole' placeholder='Manager' onChange={this.handleTextChange} required />
                                 </div>
@@ -63,11 +62,11 @@ class SignUp extends Component {
 
                         <div className='form-group'>
                             <div className='row'>
-                                <div className='col-xs-8'>
+                                <div className='col-xs-12 col-sm-8'>
                                     <p>Address:</p>
                                     <input type='text' className='form-input' id='address' placeholder='64th King Street Wisconsin' onChange={this.handleTextChange} required />
                                 </div>
-                                <div className='col-xs-4'>
+                                <div className='col-xs-12 col-sm-4 '>
                                     <p>Gender:</p>
                                     <select className='form-input' value={this.state.gender} id='gender' onChange={this.handleTextChange}>
                                         <option value='Male'>Male</option>
@@ -88,9 +87,15 @@ class SignUp extends Component {
                             <input type='password' className='form-input' id='password' onChange={this.handleTextChange} required />
                         </div>
 
-                        <div className='form-group' style={{ marginBottom: '20px' }}>
-                            <Link to='/login'>Already have an account?</Link>
-                            <button type='submit' className='btn btn-primary float-right'>Login</button>
+                        <div className='form-group'>
+                            <div className='row'>
+                                <div className='col-xs-12 col-sm-6'>
+                                    <Link to='/login'>Already have an account?</Link>
+                                </div>
+                                <div className='col-xs-12 col-sm-6'>
+                                    <button type='submit' className='btn btn-primary float-md-right'>Sign Up</button>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="center red-text">
