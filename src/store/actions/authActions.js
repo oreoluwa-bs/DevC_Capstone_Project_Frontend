@@ -22,7 +22,7 @@ export const signIn = (credentials) => {
 
 export const signup = (credentials) => {
     return (dispatch, getState) => {
-        const request = new Request(`${url}/signin`, {
+        const request = new Request(`${url}/create-user`, {
             method: 'POST',
             body: credentials,
             headers: {
