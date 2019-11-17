@@ -6,6 +6,7 @@ export const signIn = (credentials) => {
             body: credentials,
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
         });
 
@@ -15,6 +16,26 @@ export const signIn = (credentials) => {
                 dispatch({ type: 'LOGIN_SUCCESS', data });
             }).catch((err) => {
                 dispatch({ type: 'LOGIN_FAILED', err });
+            });
+    }
+}
+
+export const signup = (credentials) => {
+    return (dispatch, getState) => {
+        const request = new Request(`${url}/signin`, {
+            method: 'POST',
+            body: credentials,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        console.log(request);
+        fetch(request)
+            .then((data) => {
+                dispatch({ type: 'SIGNUP_SUCCESS', data });
+            }).catch((err) => {
+                dispatch({ type: 'SIGNUP_FAILED', err });
             });
     }
 }
