@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/DevC_Capstone_Project_Frontend/static/css/main.a43cc5b2.chunk.css",
+    "main.js": "/DevC_Capstone_Project_Frontend/static/js/main.73a1ea79.chunk.js",
+    "main.js.map": "/DevC_Capstone_Project_Frontend/static/js/main.73a1ea79.chunk.js.map",
+    "runtime-main.js": "/DevC_Capstone_Project_Frontend/static/js/runtime-main.3b024942.js",
+    "runtime-main.js.map": "/DevC_Capstone_Project_Frontend/static/js/runtime-main.3b024942.js.map",
+    "static/js/2.3af24475.chunk.js": "/DevC_Capstone_Project_Frontend/static/js/2.3af24475.chunk.js",
+    "static/js/2.3af24475.chunk.js.map": "/DevC_Capstone_Project_Frontend/static/js/2.3af24475.chunk.js.map",
+    "index.html": "/DevC_Capstone_Project_Frontend/index.html",
+    "precache-manifest.0bab02d90dc45098302a8bb993d1b476.js": "/DevC_Capstone_Project_Frontend/precache-manifest.0bab02d90dc45098302a8bb993d1b476.js",
+    "service-worker.js": "/DevC_Capstone_Project_Frontend/service-worker.js",
+    "static/css/main.a43cc5b2.chunk.css.map": "/DevC_Capstone_Project_Frontend/static/css/main.a43cc5b2.chunk.css.map",
+    "static/media/App.css": "/DevC_Capstone_Project_Frontend/static/media/FranklinGothic-Medium.09aff291.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3b024942.js",
+    "static/js/2.3af24475.chunk.js",
+    "static/css/main.a43cc5b2.chunk.css",
+    "static/js/main.73a1ea79.chunk.js"
+  ]
+}
