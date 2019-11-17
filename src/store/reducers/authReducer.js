@@ -15,7 +15,7 @@ const authReducer = (state = initState, action) => {
             console.log(action.data);
             return {
                 ...state,
-                auth: action.data,
+                auth: {},
                 authError: null
             }
 
