@@ -21,7 +21,7 @@
 .dashboard-tabbar  .nav .nav-item{
   padding: 15px;
 }
-.dashboard-tabbar .nav .nav-item:hover, .nav .nav-item:active{
+.dashboard-tabbar .nav .nav-item:hover, .nav .nav-item.activeRoute{
  /* background: var(--blue); */
  /* color: white; */
 }
@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-.dashboard-tabbar  .nav .nav-item .nav-link:active{
+.dashboard-tabbar  .nav .nav-item .nav-link.activeRoute{
     color: var(--blue);
 }
   

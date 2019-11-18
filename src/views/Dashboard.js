@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../styles/dashboard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStickyNote, faImage, faFolderMinus } from '@fortawesome/free-solid-svg-icons'
 
 const Dashboard = (props) => {
-    // const { auth } = props
+    const { auth } = props
 
-    // if (!auth.userId) { return <Redirect to='/login' /> }
+    if (!auth.userId) { return <Redirect to='/login' /> }
 
     return (
         <div className='container'>
@@ -21,22 +21,22 @@ const Dashboard = (props) => {
                             <div className='nav'>
                                 <ul className='nav-links'>
                                     <li className='nav-item'>
-                                        <Link to='/' className='nav-link' active='true'>
+                                        <NavLink to='/' className='nav-link' activeClassName='activeRoute'>
                                             <FontAwesomeIcon icon={faFolderMinus} size='2x' />
                                             <span>My feed</span>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                     <li className='nav-item'>
-                                        <Link to='' className='nav-link'>
+                                        <NavLink to='' className='nav-link'>
                                             <FontAwesomeIcon icon={faStickyNote} size='2x' />
                                             <span>Post an article</span>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                     <li className='nav-item'>
-                                        <Link to='' className='nav-link'>
+                                        <NavLink to='' className='nav-link'>
                                             <FontAwesomeIcon icon={faImage} size='2x' />
                                             <span>Post a gif</span>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                 </ul>
                             </div>
