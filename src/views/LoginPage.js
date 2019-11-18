@@ -13,7 +13,6 @@ class LoginPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signIn(this.state);
-        // console.log(this.state);
     }
 
     handleTextChange = (e) => {
@@ -25,7 +24,7 @@ class LoginPage extends Component {
     render() {
         const { authError, auth } = this.props
 
-        // if (auth.id) { return <Redirect to='/' /> }
+        if (auth.userId) { return <Redirect to='/' /> }
 
         return (
             <div className='container login-container'>
@@ -34,15 +33,21 @@ class LoginPage extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className='form-group'>
                             <p>Email Address:</p>
-                            <input type='text' className='form-input' id='email' placeholder='john.doe@gmail.com' value={this.state.email} onChange={this.handleTextChange} />
+                            <input type='text' className='form-input' id='email' placeholder='john.doe@gmail.com' value={this.state.email} onChange={this.handleTextChange} autoFocus />
                         </div>
                         <div className='form-group'>
                             <p>Password:</p>
                             <input type='password' className='form-input' id='password' value={this.state.password} onChange={this.handleTextChange} />
                         </div>
-                        <div className='form-group' style={{ marginBottom: '20px' }}>
-                            <Link to=''>Do not have an account?</Link>
-                            <button type='submit' className='btn btn-primary float-right'>Login</button>
+                        <div className='form-group'>
+                            <div className='row'>
+                                <div className='col-xs-12 col-sm-6'>
+                                    <Link to=''>Do not have an account?</Link>
+                                </div>
+                                <div className='col-xs-12 col-sm-6'>
+                                    <button type='submit' className='btn btn-primary float-md-right'>Login</button>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="center red-text">
@@ -58,7 +63,7 @@ class LoginPage extends Component {
 const mapStateToProps = (state) => {
     return {
         authError: state.auth.authError,
-        auth: state.auth.auth
+        auth: state.auth.auth,
     }
 }
 

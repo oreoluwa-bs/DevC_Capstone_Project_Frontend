@@ -26,3 +26,31 @@ export const signIn = (credentials) => {
             });
     }
 }
+
+export const signup = (credentials) => {
+    return (dispatch, getState) => {
+        const request = new Request(`${url}/create-user`, {
+            method: 'POST',
+            body: JSON.stringify(credentials),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+            })
+        });
+        fetch(request)
+            .then((response) => {
+                response.json()
+                    .then((res) => {
+                        if (res.status === 'error') {
+                            dispatch({ type: 'SIGNUP_FAILED', data: res });
+                        } else {
+                            dispatch({ type: 'SIGNUP_SUCCESS', data: res });
+                        }
+                    })
+                    .catch((err) => {
+                        dispatch({ type: 'SIGNUP_FAILED', data: err });
+                    });
+            }).catch((err) => {
+                dispatch({ type: 'SIGNUP_FAILED', data: err });
+            });
+    }
+}

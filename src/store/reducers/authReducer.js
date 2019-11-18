@@ -1,21 +1,24 @@
 const initState = {
-    authError: null
+    authError: null,
+    auth: {
+        userId: null,
+        token: null
+    }
 }
 
 const authReducer = (state = initState, action) => {
     switch (action.type) {
         case 'LOGIN_FAILED':
-            console.log('Login unsuccessful', action.err);
+            // console.log('Login unsuccessful');
             return {
                 ...state,
-                authError: 'Login failed'
+                authError: action.data.message
             }
 
         case 'LOGIN_SUCCESS':
-            console.log(action.data);
             return {
                 ...state,
-                auth: {},
+                auth: action.data.data,
                 authError: null
             }
 
@@ -27,6 +30,7 @@ const authReducer = (state = initState, action) => {
             console.log('Signup succesful');
             return {
                 ...state,
+                auth: action.data.data,
                 authError: null
             }
 
@@ -34,7 +38,7 @@ const authReducer = (state = initState, action) => {
             console.log('Signup unsuccessful');
             return {
                 ...state,
-                authError: action.err.message
+                authError: action.data.message
             }
 
         default:

@@ -28,13 +28,20 @@
     text-decoration: none;
 }
 
+.navbar .nav-links .nav-item.nav-brand {
+    padding: 15px 20px 0;
+}
+.navbar .nav-brand a{
+    font-family: FranklinGothicDemi;
+    font-size: 20px;
+}
+
 .navbar .nav-links .nav-item.nav-btn:hover{
     background-color: transparent;
 }
 
 .navbar .nav-links .nav-item.nav-btn .btn-sm{
-    /* color: white; */
-    color: var(--lighter-gray);
+    color: white;
     text-decoration: none;
     border-radius: 6px;
     background-color: orange;
@@ -58,14 +65,14 @@
         top: 50%;
         transform: translate(-5%, -50%);
     } */
-    .nav-links {
+    /* .nav-links {
         display: none;
         position: fixed;
         background: orangered;
         height: 100vh;
         width: 20%;
         flex-direction: column;
-    }
+    } */
 } 
 /* .navbar{
     background-color: cornflowerblue;

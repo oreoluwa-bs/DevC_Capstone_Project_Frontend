@@ -108,3 +108,80 @@ span, p, a{
 .text-grey{
   color: var(--lighter-gray);
 }
+
+@media screen and (max-width:575px){
+  h1 {
+    font-size: 50px;
+  }
+  
+  h2 {
+    font-size: 44px;
+  }
+  
+  h3 {
+    font-size: 28px;
+  }
+  
+  h4 {
+    font-size: 20px;
+  }
+  
+  h5 {
+    font-size: 20px;
+  }
+  
+  h6 {
+    font-size: 14px;
+  }
+  
+  h1.bold, h2.bold, h3.bold, h4.bold, h5.bold, h6.bold{
+    font-family: FranklinGothicMedium;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  
+  p.x-l-4{
+    font-size: 32px;
+  }
+  p.x-l-3{
+    font-size: 26px;
+  }
+  p.x-l-2{
+    font-size: 20px;
+  }
+  p.x-l{
+    font-size: 14px;
+  }
+  p.large{
+    font-size: 8px;
+  }
+  p.med{
+    font-size: 6px;
+  }
+  p.smal{
+    font-size: 4px;
+  }
+  p.x-s-4{
+    font-size: 7px;
+  }
+  p.x-s-3{
+    font-size: 9px;
+  }
+  p.x-s-2{
+    font-size: 10px;
+  }
+  p.x-s{
+    font-size: 12px;
+  }
+  p.bold{
+    line-height: 1.2;
+  }
+  p.block-heading{
+    line-height: 1.2;
+  }
+  span, p, a{
+    line-height: 1.2;
+    font-size: 13px;
+  }
+  
+}
