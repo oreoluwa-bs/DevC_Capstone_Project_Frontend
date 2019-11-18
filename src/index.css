@@ -52,39 +52,3 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     float: left;
   }
 }
-
-
-
-.nav {
-  background-color: white;
-  border: 1px solid var(--lightest-gray);
-  /* padding: 15px 0px; */
-  border-radius: 8px;
-}
-
-.nav .nav-item{
-  padding: 15px;
-  border-bottom: 1px solid var(--lightest-gray);
-  /* color: var(--blue); */
-}
-.nav .nav-item:first-of-type{
-  padding-top: 30px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.nav .nav-item:last-of-type{
-  padding-bottom: 30px;
-  border-bottom: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-.nav .nav-item:hover, .nav .nav-item:active{
- /* background: var(--blue); */
- /* color: white; */
-}
-
-.nav .nav-item .nav-link{
-  /* color: inherit; */
-  text-decoration: none;
-}

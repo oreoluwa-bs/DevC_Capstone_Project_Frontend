@@ -12,5 +12,11 @@ export const SignedInLinks = () => {
 }
 
 export const SignedOutLinks = () => {
-    return null;
+    return (
+        <ul className='nav-links float-md-right'>
+            {/* <li className='nav-item'><Link to='' className='nav-link'>About</Link></li> */}
+            {/* <li className='nav-item'><Link to='' className='nav-link'>Feed</Link></li> */}
+            <li className='nav-item nav-btn'><Link to='' className='btn-sm'>Logout</Link></li>
+        </ul>
+    );
 }
