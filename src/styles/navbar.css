@@ -12,7 +12,7 @@
 }
 
 .navbar .nav-links .nav-item{
-    padding: 20px;
+    padding: 10px;
 }
 
 .navbar .nav-links .nav-item:hover{
@@ -45,7 +45,10 @@
     text-decoration: none;
     border-radius: 6px;
     background-color: orange;
-    padding: 7px 20px 8px;
+    padding: 8px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

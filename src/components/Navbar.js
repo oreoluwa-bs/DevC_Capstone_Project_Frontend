@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/navbar.css'
-import { SignedOutLinks, SignedInLinks } from './Navbarlinks';
+import SignedInLinks from './Navbarlinks';
 
 const Navbar = (props) => {
     const { auth } = props;
-    const links = auth.userId ? <SignedInLinks /> : <SignedOutLinks />;
+    const links = auth.token ? <SignedInLinks /> : <SignedOutLinks />;
     return (
         <nav className='navbar'>
             <div className='container'>
@@ -31,3 +31,7 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Navbar);
+
+const SignedOutLinks = () => {
+    return null;
+}

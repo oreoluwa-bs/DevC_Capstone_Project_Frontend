@@ -52,3 +52,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     float: left;
   }
 }
+
+@media screen and (max-width:768px){
+  .container{
+    margin: 0;
+  }
+}

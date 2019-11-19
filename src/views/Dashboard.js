@@ -7,13 +7,14 @@ import { faStickyNote, faImage, faFolderMinus } from '@fortawesome/free-solid-sv
 
 const Dashboard = (props) => {
     const { auth } = props
+    console.log(auth);
 
-    if (!auth.userId) { return <Redirect to='/login' /> }
+    if (!auth.token) { return <Redirect to='/login' /> }
 
     return (
         <div className='container'>
             <div style={{ display: '', marginTop: '50px' }}>
-                <div className='row'>
+                <div className='row dash-row'>
                     <div className='col-xs-12 col-sm-3 col-md-2 col-lg-2'>
                     </div>
                     <div className='col-xs-12 col-sm-6 col-md-8 col-lg-8'>

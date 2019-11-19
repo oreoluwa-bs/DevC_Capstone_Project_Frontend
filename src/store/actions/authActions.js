@@ -15,6 +15,8 @@ export const signIn = (credentials) => {
                         if (res.status === 'error') {
                             dispatch({ type: 'LOGIN_FAILED', data: res });
                         } else {
+                            localStorage.setItem('userId', res.data.userId)
+                            localStorage.setItem('userToken', res.data.token)
                             dispatch({ type: 'LOGIN_SUCCESS', data: res });
                         }
                     })

@@ -1,15 +1,24 @@
-const initState = {
-    authError: null,
-    auth: {
+const user = localStorage.getItem('userToken');
+let auth = null;
+if (user) {
+    auth = {
+        userId: localStorage.getItem('userId'),
+        token: user
+    }
+} else {
+    auth = {
         userId: null,
         token: null
-    }
+    };
+}
+const initState = {
+    authError: null,
+    auth,
 }
 
 const authReducer = (state = initState, action) => {
     switch (action.type) {
         case 'LOGIN_FAILED':
-            // console.log('Login unsuccessful');
             return {
                 ...state,
                 authError: action.data.message
@@ -23,8 +32,15 @@ const authReducer = (state = initState, action) => {
             }
 
         case 'SIGNOUT_SUCCESS':
-            console.log('Logout successful');
-            return state
+            localStorage.removeItem('userToken');
+            return {
+                ...state,
+                authError: null,
+                auth: {
+                    userId: null,
+                    token: null
+                },
+            }
 
         case 'SIGNUP_SUCCESS':
             console.log('Signup succesful');

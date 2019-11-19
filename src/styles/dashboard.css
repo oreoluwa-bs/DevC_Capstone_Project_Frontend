@@ -10,7 +10,8 @@
     border-radius: 8px;
     background-color: white;
     width: 100%;
-    min-height: 750px;
+    min-height: 80vh;
+    /* height: 90%; */
     overflow-y: scroll;
 }
 
@@ -44,4 +45,13 @@
 .dashboard-tabbar  .nav .nav-item .nav-link span{
     margin-left: 15px;
 }
-  
+
+@media screen and (max-width:768px){
+    .dashboard-tabbar  .nav .nav-item .nav-link span{
+        display: none;
+    }    
+    .row.dash-row{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
