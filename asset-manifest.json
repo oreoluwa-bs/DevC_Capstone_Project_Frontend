@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/DevC_Capstone_Project_Frontend/static/css/main.9b20184a.chunk.css",
-    "main.js": "/DevC_Capstone_Project_Frontend/static/js/main.c6a5e922.chunk.js",
-    "main.js.map": "/DevC_Capstone_Project_Frontend/static/js/main.c6a5e922.chunk.js.map",
+    "main.js": "/DevC_Capstone_Project_Frontend/static/js/main.b2159049.chunk.js",
+    "main.js.map": "/DevC_Capstone_Project_Frontend/static/js/main.b2159049.chunk.js.map",
     "runtime-main.js": "/DevC_Capstone_Project_Frontend/static/js/runtime-main.3b024942.js",
     "runtime-main.js.map": "/DevC_Capstone_Project_Frontend/static/js/runtime-main.3b024942.js.map",
     "static/js/2.2196b779.chunk.js": "/DevC_Capstone_Project_Frontend/static/js/2.2196b779.chunk.js",
     "static/js/2.2196b779.chunk.js.map": "/DevC_Capstone_Project_Frontend/static/js/2.2196b779.chunk.js.map",
     "index.html": "/DevC_Capstone_Project_Frontend/index.html",
-    "precache-manifest.3129b486ef0dead5996f960151961763.js": "/DevC_Capstone_Project_Frontend/precache-manifest.3129b486ef0dead5996f960151961763.js",
+    "precache-manifest.2571739612bd6f51742e7bd19918c0c0.js": "/DevC_Capstone_Project_Frontend/precache-manifest.2571739612bd6f51742e7bd19918c0c0.js",
     "service-worker.js": "/DevC_Capstone_Project_Frontend/service-worker.js",
     "static/css/main.9b20184a.chunk.css.map": "/DevC_Capstone_Project_Frontend/static/css/main.9b20184a.chunk.css.map",
     "static/media/App.css": "/DevC_Capstone_Project_Frontend/static/media/FranklinGothic-Medium.09aff291.ttf"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3b024942.js",
     "static/js/2.2196b779.chunk.js",
     "static/css/main.9b20184a.chunk.css",
-    "static/js/main.c6a5e922.chunk.js"
+    "static/js/main.b2159049.chunk.js"
   ]
 }
