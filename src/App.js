@@ -13,9 +13,9 @@ function App() {
         <Navbar />
         <div style={{ marginTop: '2rem' }}>
           <Switch>
-            <Route exact path='/' component={Dashboard} />
-            <Route path='/login' component={LoginPage} />
-            <Route path='/signup' component={SignupPage} />
+            <Route exact path='/DevC_Capstone_Project_Frontend/' component={Dashboard} />
+            <Route path='/DevC_Capstone_Project_Frontend/login' component={LoginPage} />
+            <Route path='/DevC_Capstone_Project_Frontend/signup' component={SignupPage} />
           </Switch>
         </div>
       </BrowserRouter>
