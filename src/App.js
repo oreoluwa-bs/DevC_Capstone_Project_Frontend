@@ -9,7 +9,7 @@ import './App.css';
 function App() {
   return (
     <div className="">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Navbar />
         <div style={{ marginTop: '2rem' }}>
           <Switch>
