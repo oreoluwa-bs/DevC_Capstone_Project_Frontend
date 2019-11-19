@@ -7,9 +7,10 @@ import Dashboard from './views/Dashboard';
 import './App.css';
 
 function App() {
+  console.log(process.env.PUBLIC_URL)
   return (
     <div className="">
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename='DevC_Capstone_Project_Frontend/'>
         <Navbar />
         <div style={{ marginTop: '2rem' }}>
           <Switch>
