@@ -13,9 +13,7 @@ function App() {
         <Navbar />
         <div style={{ marginTop: '2rem' }}>
           <Switch>
-            <Route exact path='/'>
-              <Dashboard />
-            </Route>
+            <Route exact path='/' component={Dashboard} />
             <Route path='/login' component={LoginPage} />
             <Route path='/signup' component={SignupPage} />
           </Switch>
