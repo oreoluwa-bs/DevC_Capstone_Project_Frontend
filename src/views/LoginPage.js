@@ -25,7 +25,7 @@ class LoginPage extends Component {
         const { authError, auth } = this.props
         console.log(auth)
 
-        if (auth.token) { return <Redirect to='/DevC_Capstone_Project_Frontend/' /> }
+        if (auth.token) { return <Redirect to='/' /> }
 
         return (
             <div className='container login-container'>

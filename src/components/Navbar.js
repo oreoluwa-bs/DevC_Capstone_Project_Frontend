@@ -16,7 +16,7 @@ const Navbar = (props) => {
                     <div className='line'></div>
                 </div> */}
                 <ul className='nav-links float-md-left'>
-                    <li className='nav-item nav-brand'><Link to='/DevC_Capstone_Project_Frontend/' className='nav-link'>Teamwork</Link></li>
+                    <li className='nav-item nav-brand'><Link to='/' className='nav-link'>Teamwork</Link></li>
                 </ul>
                 {links}
             </div>

@@ -9,7 +9,7 @@ const Dashboard = (props) => {
     const { auth } = props
     console.log(auth);
 
-    if (!auth.token) { return <Redirect to='/DevC_Capstone_Project_Frontend/login' /> }
+    if (!auth.token) { return <Redirect to='/login' /> }
 
     return (
         <div className='container'>
