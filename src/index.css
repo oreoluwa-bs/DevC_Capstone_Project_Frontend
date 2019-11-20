@@ -43,6 +43,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
   float: left;
 }
 
+@media screen and (max-width:768px){
+  .container{
+    margin: 0;
+  }
+}
 @media screen and (min-width:768px){
   .float-md-right{
     float: right;
@@ -53,8 +58,3 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
   }
 }
 
-@media screen and (max-width:768px){
-  .container{
-    margin: 0;
-  }
-}

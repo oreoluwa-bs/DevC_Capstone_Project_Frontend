@@ -22,8 +22,7 @@ class LoginPage extends Component {
     }
 
     render() {
-        const { authError, auth } = this.props
-        console.log(auth)
+        const { authError, auth } = this.props;
 
         if (auth.token) { return <Redirect to='/' /> }
 
@@ -43,7 +42,7 @@ class LoginPage extends Component {
                         <div className='form-group'>
                             <div className='row'>
                                 <div className='col-xs-12 col-sm-6'>
-                                    <Link to=''>Do not have an account?</Link>
+                                    <Link to='/signup'>Do not have an account?</Link>
                                 </div>
                                 <div className='col-xs-12 col-sm-6'>
                                     <button type='submit' className='btn btn-primary float-md-right'>Login</button>

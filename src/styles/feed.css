@@ -1,9 +1,12 @@
-.post {
-    width: 100%;
-    border: 1px solid var(--lightest-gray);
-    border-bottom: 0px;
+.feed-container {
     padding: 30px;
 }
+.post {
+    border: 1px solid var(--lightest-gray);
+    border-bottom: 0px;
+    padding: 15px;
+}
+
 .post:first-of-type {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -16,30 +19,66 @@
     border-bottom: 1px solid var(--lightest-gray);
 }
 
-/* .post-title {
-    font-size: medium;
-    font-weight: bold;
-    margin-bottom: 1em;
-} */
-
-.post-small .post-content p{
-    /* height: 130px; */
-    /* overflow: hidden; */
-    text-overflow: ellipsis;
+.post .post-title {
+    text-decoration: none;
+    color: inherit;
 }
-.post-small .post-content p::after{
-    content: ' ...Read more';
+.post-small .readmore-link{
     color: teal;
     font-size: 14px;
 }
 
+.post .post-author{
+    color: var(--lighter-gray);
+}
+
+.post .f-icon{
+    cursor: pointer;
+    color: var(--gray);
+}
+.post .f-icon:hover{
+    color: var(--blue);
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
 .post-tools {
-    /* background-color: tomato; */
     padding-top: 5px;
 }
 
-.ima {
+.post textarea.form-input{
+    /* font-size: 16px; */
+    font-family: FranklinGothicBook;
+    margin: 10px auto;
     width: 100%;
-    background-color: tomato;
+    resize: vertical;
+}
+
+.post .ima {
+    width: 100%;
+    background-color: teal;
     height: 400px;
+    margin-bottom: 5px;
+}
+
+.post .ima .post-img {
+    width: inherit;
+    height: inherit;
+}
+
+@media screen and (max-width:575px){
+    .post .ima {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width:375px){
+    .feed-container {
+        padding: 15px;
+    }
+    .post .ima {
+        height: 200px;
+    }
 }

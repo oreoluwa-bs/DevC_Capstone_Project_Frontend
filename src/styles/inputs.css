@@ -45,7 +45,7 @@
 
 .btn.btn-primary{
     border: 0;
-    border-radius: 8px;
+    border-radius: 6px;
     color: white;
     background-color: var(--blue);
 }
@@ -64,7 +64,8 @@
         outline: none;
     }
     .btn {
-        font-size: 16px;
+        padding: 9px 20px;
+        font-size: 13px;
     }
 }
 
@@ -88,6 +89,10 @@
 @media screen and (max-width:575px){
     .form {
         max-width: 300px;
+    }
+    .btn {
+        font-size: 10px;
+        padding: 9px 10px 10px;
     }
 }
 

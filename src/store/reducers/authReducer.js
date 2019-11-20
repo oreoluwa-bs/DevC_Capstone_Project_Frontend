@@ -1,8 +1,8 @@
-const user = localStorage.getItem('userToken');
+const user = sessionStorage.getItem('userToken');
 let auth = null;
 if (user) {
     auth = {
-        userId: localStorage.getItem('userId'),
+        userId: sessionStorage.getItem('userId'),
         token: user
     }
 } else {
@@ -32,7 +32,8 @@ const authReducer = (state = initState, action) => {
             }
 
         case 'SIGNOUT_SUCCESS':
-            localStorage.removeItem('userToken');
+            sessionStorage.removeItem('userToken');
+            sessionStorage.removeItem('userId');
             return {
                 ...state,
                 authError: null,
