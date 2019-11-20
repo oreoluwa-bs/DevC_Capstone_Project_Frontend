@@ -1,7 +1,10 @@
-const url = 'http://localhost:5000/api/v1/auth';
+export const baseURL = 'http://localhost:5000/api/v1/';
+
+const path = 'auth';
+
 export const signIn = (credentials) => {
     return (dispatch, getState) => {
-        const request = new Request(`${url}/signin`, {
+        const request = new Request(`${baseURL+path}/signin`, {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: new Headers({
@@ -15,8 +18,8 @@ export const signIn = (credentials) => {
                         if (res.status === 'error') {
                             dispatch({ type: 'LOGIN_FAILED', data: res });
                         } else {
-                            localStorage.setItem('userId', res.data.userId)
-                            localStorage.setItem('userToken', res.data.token)
+                            sessionStorage.setItem('userId', res.data.userId)
+                            sessionStorage.setItem('userToken', res.data.token)
                             dispatch({ type: 'LOGIN_SUCCESS', data: res });
                         }
                     })
@@ -31,7 +34,7 @@ export const signIn = (credentials) => {
 
 export const signup = (credentials) => {
     return (dispatch, getState) => {
-        const request = new Request(`${url}/create-user`, {
+        const request = new Request(`${baseURL+path}/create-user`, {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: new Headers({

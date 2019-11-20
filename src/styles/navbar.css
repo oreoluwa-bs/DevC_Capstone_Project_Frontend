@@ -14,10 +14,6 @@
 .navbar .nav-links .nav-item{
     padding: 10px;
 }
-
-.navbar .nav-links .nav-item:hover{
-    background-color: crimson;
-}
 .navbar .nav-links .nav-item:hover.nav-brand{
     background-color: transparent;
 }
@@ -51,40 +47,25 @@
     cursor: pointer;
 }
 
+
 @media screen and (max-width: 768px) {
-    /* .line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px;
+    .navbar > .container{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
     }
-    nav {
-        position: relative;
+    .nav-links.float-md-right{
+        margin-right: 10px;
     }
-    .hamburger{
-        position: absolute;
-        cursor: pointer;
-        right: 5%;
-        top: 50%;
-        transform: translate(-5%, -50%);
-    } */
-    /* .nav-links {
-        display: none;
-        position: fixed;
-        background: orangered;
-        height: 100vh;
-        width: 20%;
-        flex-direction: column;
-    } */
-} 
-/* .navbar{
-    background-color: cornflowerblue;
-    height: 60px;
-    width: 100%;
-    display: flex;
+    .navbar .nav-links .nav-item.nav-btn .btn-sm{
+        padding: 9px 20px;
+        font-size: 12px;
+    }
 }
 
-.navbar .nav-links{
-    display: flex;
-    list-style: none;
-} */
+@media screen and (max-width:575px) {
+    .navbar .nav-links .nav-item.nav-btn .btn-sm{
+        padding: 9px 20px;
+        font-size: 10px;
+    }
+}
