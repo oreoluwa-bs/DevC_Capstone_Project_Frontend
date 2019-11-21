@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 import Comments from './Comments';
 import { connect } from 'react-redux';
+import { commentPost } from '../store/actions/gifActions.js';
 
 class GifPostSmall extends Component {
     state = {
@@ -15,8 +16,8 @@ class GifPostSmall extends Component {
             commentIsHidden: !this.state.commentIsHidden
         });
     }
-    handleCommentPost = (fo) => {
-        console.log(fo)
+    handleCommentPost = (gifId, comment) => {
+        this.props.commentPost(gifId, comment);
     }
 
     render() {
@@ -31,7 +32,7 @@ class GifPostSmall extends Component {
                 <Link to={`article/${id}`} className='post-title'><p className='bold large'>{title}</p></Link>
                 <div className='post-content'>
                     <div className='ima'>
-                        <img src={imageUrl} alt='title-img' className='post-img'/>
+                        <img src={imageUrl} alt='title-img' className='post-img' />
                     </div>
                     <div className='post-tools'>
                         <div className='row'>
@@ -43,7 +44,7 @@ class GifPostSmall extends Component {
                             </div>
                         </div>
                     </div>
-                    <Comments commentState={commentState} handleCommentPost={this.handleCommentPost} />
+                    <Comments postId={id} commentState={commentState} handleCommentPost={this.handleCommentPost} />
                 </div>
             </div>
         );
@@ -52,7 +53,7 @@ class GifPostSmall extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // signIn: (creds) => dispatch(signIn(creds))
+        commentPost: (gifId, comment) => dispatch(commentPost(gifId, comment))
     }
 }
 
