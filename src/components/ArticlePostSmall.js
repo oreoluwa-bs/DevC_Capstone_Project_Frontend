@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 import Comments from './Comments';
 import { connect } from 'react-redux';
+import { commentPost } from '../store/actions/articleActions';
 
 class ArticlePostSmall extends Component {
     state = {
@@ -15,8 +16,8 @@ class ArticlePostSmall extends Component {
             commentIsHidden: !this.state.commentIsHidden
         });
     }
-    handleCommentPost = (fo) => {
-        console.log(fo)
+    handleCommentPost = (gifId, comment) => {
+        this.props.commentPost(gifId, comment);
     }
 
     render() {
@@ -47,7 +48,7 @@ class ArticlePostSmall extends Component {
                             </div>
                         </div>
                     </div>
-                    <Comments commentState={commentState} handleCommentPost={this.handleCommentPost} />
+                    <Comments postId={id} commentState={commentState} handleCommentPost={this.handleCommentPost} />
                 </div>
             </div>
         );
@@ -56,7 +57,7 @@ class ArticlePostSmall extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // signIn: (creds) => dispatch(signIn(creds))
+        commentPost: (gifId, comment) => dispatch(commentPost(gifId, comment))
     }
 }
 

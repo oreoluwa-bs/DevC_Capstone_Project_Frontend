@@ -10,12 +10,15 @@ class Comments extends Component {
         });
     }
     render() {
-        const { commentState, handleCommentPost } = this.props;
+        const { commentState, handleCommentPost, postId } = this.props;
         return (
             <div>
                 <form style={{ display: commentState }} onSubmit={(e) => {
                     e.preventDefault()
-                    handleCommentPost(this.state.comment)
+                    handleCommentPost(postId, this.state.comment)
+                    this.setState({
+                        comment: '',
+                    });
                 }}>
                     <textarea className='form-input' id='comment' value={this.state.comment} onChange={this.handleTextChange}></textarea>
 
