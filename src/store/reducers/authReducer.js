@@ -53,7 +53,7 @@ const authReducer = (state = initState, action) => {
             console.log('Signup succesful');
             return {
                 ...state,
-                auth: action.data.data,
+                auth: null,
                 authError: null,
                 notification: action.data
             }

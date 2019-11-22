@@ -9,7 +9,7 @@ const DashTabbar = () => {
             <div className='nav'>
                 <ul className='nav-links'>
                     <li className='nav-item'>
-                        <NavLink to='/dashboard/' className='nav-link' activeClassName='activeRoute'>
+                        <NavLink exact to='/dashboard/' className='nav-link' activeClassName='activeRoute'>
                             <FontAwesomeIcon icon={faFolderMinus} size='2x' />
                             <span>My feed</span>
                         </NavLink>
