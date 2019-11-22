@@ -12,6 +12,10 @@ if (user) {
     };
 }
 const initState = {
+    notification: {
+        status: null,
+        message: null,
+    },
     authError: null,
     auth,
 }
@@ -21,14 +25,16 @@ const authReducer = (state = initState, action) => {
         case 'LOGIN_FAILED':
             return {
                 ...state,
-                authError: action.data.message
+                authError: action.data.message,
+                notification: action.data
             }
 
         case 'LOGIN_SUCCESS':
             return {
                 ...state,
                 auth: action.data.data,
-                authError: null
+                authError: null,
+                notification: action.data,
             }
 
         case 'SIGNOUT_SUCCESS':
@@ -47,15 +53,17 @@ const authReducer = (state = initState, action) => {
             console.log('Signup succesful');
             return {
                 ...state,
-                auth: action.data.data,
-                authError: null
+                auth: null,
+                authError: null,
+                notification: action.data
             }
 
         case 'SIGNUP_FAILED':
             console.log('Signup unsuccessful');
             return {
                 ...state,
-                authError: action.data.message
+                authError: action.data.message,
+                notification: action.data
             }
 
         default:

@@ -1,16 +1,17 @@
 import React from 'react';
-import { NavLink, Redirect, Switch, Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import '../styles/dashboard.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStickyNote, faImage, faFolderMinus } from '@fortawesome/free-solid-svg-icons'
-import FeedPage from './FeedPage';
 import Footer from '../components/Footer';
+import DashTabbar from '../components/DashTabbar';
+import FeedPage from './FeedPage';
+import ArticlePostDetail from '../components/post/ArticlePostDetail';
+import GifDetailPost from '../components/post/GifDetailPost';
+
+import '../styles/dashboard.css';
 
 const Dashboard = (props) => {
     const { auth } = props;
     if (!auth.token) { return <Redirect to='/login' /> }
-
     return (
         <div>
             <div className='container'>
@@ -19,34 +20,11 @@ const Dashboard = (props) => {
                         <div className='col-xs-12 col-sm-1'>
                         </div>
                         <div className='col-xs-12 col-sm-10'>
-                            <div className='dashboard-tabbar'>
-                                <div className='nav'>
-                                    <ul className='nav-links'>
-                                        <li className='nav-item'>
-                                            <NavLink to='/' className='nav-link' activeClassName='activeRoute'>
-                                                <FontAwesomeIcon icon={faFolderMinus} size='2x' />
-                                                <span>My feed</span>
-                                            </NavLink>
-                                        </li>
-                                        <li className='nav-item'>
-                                            <NavLink to='' className='nav-link'>
-                                                <FontAwesomeIcon icon={faStickyNote} size='2x' />
-                                                <span>Post an article</span>
-                                            </NavLink>
-                                        </li>
-                                        <li className='nav-item'>
-                                            <NavLink to='' className='nav-link'>
-                                                <FontAwesomeIcon icon={faImage} size='2x' />
-                                                <span>Post a gif</span>
-                                            </NavLink>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <DashTabbar />
                             <div className='dashboard-display'>
-                                <Switch>
-                                    <Route exact path='/' component={FeedPage} />
-                                </Switch>
+                                <Route exact path='/dashboard/' component={FeedPage} />
+                                <Route path='/dashboard/article/:id' component={ArticlePostDetail} />
+                                <Route path='/dashboard/gif/:id' component={GifDetailPost} />
                             </div>
                         </div>
                         <div className='col-xs-12 col-sm-1'>

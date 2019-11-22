@@ -3,15 +3,25 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { signup } from '../store/actions/authActions';
 import '../styles/inputs.css';
+import Notification from '../components/Notification';
 
 class SignUp extends Component {
     state = {
         gender: 'Male',
+        isVisible: false,
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signUp(this.state);
+        this.setState({
+            isVisible: !this.state.isVisible
+        })
+        setTimeout(() => {
+            this.setState({
+                isVisible: !this.state.isVisible
+            })
+        }, 3000);
     }
 
     handleTextChange = (e) => {
@@ -19,16 +29,14 @@ class SignUp extends Component {
             [e.target.id]: e.target.value
         });
     }
-    handleSelect = (e) => {
-        console.log(e.target.value)
-    }
     render() {
         const { authError, auth } = this.props
 
-        if (auth.userId) { return <Redirect to='/' /> }
+        if (auth.userId) { return <Redirect to='/dashboard/' /> }
 
         return (
             <div className='container login-container signup-container'>
+                <Notification isVisible={this.state.isVisible} notification={this.props.notification} />
                 <div className='form'>
                     <h4 className='text-center'>Create an account</h4>
                     <form onSubmit={this.handleSubmit}>
@@ -109,7 +117,7 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError,
+        notification: state.auth.notification,
         auth: state.auth.auth
     }
 }

@@ -3,16 +3,26 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { signIn } from '../store/actions/authActions';
 import '../styles/inputs.css';
+import Notification from '../components/Notification';
 
 class LoginPage extends Component {
     state = {
         email: '',
         password: '',
+        isVisible: false,
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signIn(this.state);
+        this.setState({
+            isVisible: !this.state.isVisible
+        })
+        setTimeout(() => {
+            this.setState({
+                isVisible: !this.state.isVisible
+            })
+        }, 3000);
     }
 
     handleTextChange = (e) => {
@@ -22,12 +32,13 @@ class LoginPage extends Component {
     }
 
     render() {
-        const { authError, auth } = this.props;
+        const { auth } = this.props;
 
-        if (auth.token) { return <Redirect to='/' /> }
+        if (auth.token) { return <Redirect to='/dashboard/' /> }
 
         return (
             <div className='container login-container'>
+                <Notification isVisible={this.state.isVisible} notification={this.props.notification} />
                 <div className='form'>
                     <h4 className='text-center'>Login</h4>
                     <form onSubmit={this.handleSubmit}>
@@ -49,10 +60,6 @@ class LoginPage extends Component {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="center red-text">
-                            {authError ? <p>{authError}</p> : null}
-                        </div>
                     </form>
                 </div>
             </div>
@@ -62,7 +69,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError,
+        notification: state.auth.notification,
         auth: state.auth.auth,
     }
 }
