@@ -5,7 +5,6 @@ const SignedInLinks = (props) => {
     return (
         <ul className='nav-links float-md-right'>
             {/* <li className='nav-item'><Link to='' className='nav-link'>About</Link></li> */}
-            {/* <li className='nav-item'><Link to='' className='nav-link'>Feed</Link></li> */}
             <li className='nav-item nav-btn'><button onClick={() => {
                 props.signOut();
             }} className='btn-sm'>Logout</button></li>

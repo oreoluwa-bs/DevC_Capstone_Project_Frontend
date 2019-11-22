@@ -31,3 +31,30 @@ export const commentPost = (id, comment) => {
     }
 }
 
+export const getGif = (id) => {
+    return (dispatch, getState) => {
+        const request = new Request(`${baseURL + path}/${id}`, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${sessionStorage.getItem('userToken')}`
+            })
+        });
+        fetch(request)
+            .then((response) => {
+                response.json()
+                    .then((res) => {
+                        if (res.status === 'error') {
+                            dispatch({ type: 'GET_GIF_FAILED', data: res });
+                        } else {
+                            dispatch({ type: 'GET_GIF_SUCCESS', data: res });
+                        }
+                    })
+                    .catch((err) => {
+                        dispatch({ type: 'GET_GIF_FAILED', data: err });
+                    });
+            }).catch((err) => {
+                dispatch({ type: 'GET_GIF_FAILED', data: err });
+            });
+    }
+}

@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons'
-import Comments from './Comments';
+import Comments from '../Comments';
 import { connect } from 'react-redux';
-import { commentPost } from '../store/actions/articleActions';
+import { commentPost } from '../../store/actions/gifActions.js';
+import Notification from '../Notification';
 
-class ArticlePostSmall extends Component {
+class GifPostSmall extends Component {
     state = {
-        commentIsHidden: false
+        commentIsHidden: false,
+        isVisible: false,
     }
 
     toggleCommentContainer = () => {
@@ -18,26 +20,30 @@ class ArticlePostSmall extends Component {
     }
     handleCommentPost = (gifId, comment) => {
         this.props.commentPost(gifId, comment);
+        this.setState({
+            isVisible: !this.state.isVisible
+        })
+        setTimeout(() => {
+            this.setState({
+                isVisible: !this.state.isVisible
+            })
+        }, 3000);
     }
 
     render() {
+
         let commentState = 'none';
-        let articleState = 'none';
         if (this.state.commentIsHidden) {
             commentState = 'block'
         }
-        const { id, title, article, authorName } = this.props;
-        let articleSmall = article
-        if (article.length > 320) {
-            articleState = 'block'
-            articleSmall = article.split('', 320).join('')
-        }
+        const { id, title, imageUrl, authorName } = this.props;
         return (
-            <div className={`post post-small`}>
-                <Link to={`article/${id}`} className='post-title'><p className='bold large'>{title}</p></Link>
+            <div className='post'>
+                <Link to={`/dashboard/gif/${id}`} className='post-title'><p className='bold large'>{title}</p></Link>
                 <div className='post-content'>
-                    <p>{articleSmall}</p>
-                    <Link to={`article/${id}`} style={{ display: articleState }} className='readmore-link'>...Read more</Link>
+                    <div className='ima'>
+                        <img src={imageUrl} alt='title-img' className='post-img' />
+                    </div>
                     <div className='post-tools'>
                         <div className='row'>
                             <div className='col-xs-6'>
@@ -49,9 +55,16 @@ class ArticlePostSmall extends Component {
                         </div>
                     </div>
                     <Comments postId={id} commentState={commentState} handleCommentPost={this.handleCommentPost} />
+                    <Notification isVisible={this.state.isVisible} notification={this.props.notification} />
                 </div>
             </div>
         );
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        notification: state.gif.notification,
     }
 }
 
@@ -62,4 +75,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(ArticlePostSmall);
+export default connect(mapStateToProps, mapDispatchToProps)(GifPostSmall);

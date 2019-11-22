@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ArticlePostSmall from '../components/ArticlePostSmall';
-import GifPostSmall from '../components/GifPostSmall';
+import ArticlePostSmall from '../components/post/ArticlePostSmall';
+import GifPostSmall from '../components/post/GifPostSmall';
 import { connect } from 'react-redux'
 import { getFeed } from '../store/actions/feedActions'
 import '../styles/feed.css'
@@ -9,6 +9,10 @@ class FeedPage extends Component {
     state = {}
     componentDidMount() {
         this.props.getFeed();
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        this.props.getFeed();
+        return true
     }
     render() {
         const { posts } = this.props;

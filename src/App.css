@@ -244,3 +244,20 @@ span, p, a{
   }
   
 }
+
+.notification {
+  width: auto;
+  border-radius: 6px;
+  padding: 10px;
+  position: fixed;
+  top: 10%;
+  right: 44vw;
+  color: white;
+}
+
+.notification.notification-success{
+  background-color: seagreen;
+}
+.notification.notification-error{
+  background-color: crimson;
+}
