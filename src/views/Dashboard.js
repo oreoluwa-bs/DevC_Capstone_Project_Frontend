@@ -8,6 +8,8 @@ import ArticlePostDetail from '../components/post/ArticlePostDetail';
 import GifDetailPost from '../components/post/GifDetailPost';
 
 import '../styles/dashboard.css';
+import PostArticle from './PostArticle';
+import PostGif from './PostGif';
 
 const Dashboard = (props) => {
     const { auth } = props;
@@ -25,6 +27,8 @@ const Dashboard = (props) => {
                                 <Route exact path='/dashboard/' component={FeedPage} />
                                 <Route path='/dashboard/article/:id' component={ArticlePostDetail} />
                                 <Route path='/dashboard/gif/:id' component={GifDetailPost} />
+                                <Route path='/dashboard/post-article' component={PostArticle} />
+                                <Route path='/dashboard/post-gif' component={PostGif} />
                             </div>
                         </div>
                         <div className='col-xs-12 col-sm-1'>
