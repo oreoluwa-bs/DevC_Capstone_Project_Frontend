@@ -10,6 +10,22 @@ const initState = {
 
 const articleReducer = (state = initState, action) => {
     switch (action.type) {
+        case 'CREATE_ARTICLE_FAILED':
+            return {
+                ...state,
+                notification: {
+                    status: 'error',
+                    message: 'Article failed to post'
+                },
+            }
+        case 'CREATE_ARTICLE_SUCCESS':
+            return {
+                ...state,
+                notification: {
+                    status: 'success',
+                    message: 'You have posted an article'
+                },
+            }
         case 'GET_ARTICLE_FAILED':
             return {
                 ...state,

@@ -59,3 +59,35 @@ export const getArticle = (id) => {
             });
     }
 }
+
+export const createArticle = (credentials) => {
+    return (dispatch, getState) => {
+        const request = new Request(`${baseURL + path}/`, {
+            method: 'POST',
+            body: JSON.stringify({
+                title: credentials.title,
+                article: credentials.article
+            }),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${sessionStorage.getItem('userToken')}`
+            })
+        });
+        fetch(request)
+            .then((response) => {
+                response.json()
+                    .then((res) => {
+                        if (res.status === 'error') {
+                            dispatch({ type: 'CREATE_ARTICLE_FAILED', data: res });
+                        } else {
+                            dispatch({ type: 'CREATE_ARTICLE_SUCCESS', data: res });
+                        }
+                    })
+                    .catch((err) => {
+                        dispatch({ type: 'CREATE_ARTICLE_FAILED', data: err });
+                    });
+            }).catch((err) => {
+                dispatch({ type: 'CREATE_ARTICLE_FAILED', data: err });
+            });
+    }
+}
