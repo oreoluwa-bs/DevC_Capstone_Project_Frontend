@@ -10,7 +10,6 @@ import GifDetailPost from '../components/post/GifDetailPost';
 import '../styles/dashboard.css';
 import PostArticle from './PostArticle';
 import PostGif from './PostGif';
-import EditPage from '../components/EditPage';
 import EditArticle from './EditArticle';
 
 const Dashboard = (props) => {
