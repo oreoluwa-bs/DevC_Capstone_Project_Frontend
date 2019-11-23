@@ -10,6 +10,7 @@ import GifDetailPost from '../components/post/GifDetailPost';
 import '../styles/dashboard.css';
 import PostArticle from './PostArticle';
 import PostGif from './PostGif';
+import EditArticle from './EditArticle';
 
 const Dashboard = (props) => {
     const { auth } = props;
@@ -25,10 +26,11 @@ const Dashboard = (props) => {
                             <DashTabbar />
                             <div className='dashboard-display'>
                                 <Route exact path='/dashboard/' component={FeedPage} />
-                                <Route path='/dashboard/article/:id' component={ArticlePostDetail} />
+                                <Route exact path='/dashboard/article/:id' component={ArticlePostDetail} />
                                 <Route path='/dashboard/gif/:id' component={GifDetailPost} />
                                 <Route path='/dashboard/post-article' component={PostArticle} />
                                 <Route path='/dashboard/post-gif' component={PostGif} />
+                                <Route path='/dashboard/article/edit/:id' component={EditArticle} />
                             </div>
                         </div>
                         <div className='col-xs-12 col-sm-1'>

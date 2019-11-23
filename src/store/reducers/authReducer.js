@@ -30,6 +30,7 @@ const authReducer = (state = initState, action) => {
             }
 
         case 'LOGIN_SUCCESS':
+            console.log(action.data.data)
             return {
                 ...state,
                 auth: action.data.data,
