@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { commentPost, getArticle } from '../../store/actions/articleActions';
 import Comments from '../Comments';
@@ -33,6 +34,7 @@ class ArticlePostDetail extends Component {
 
     render() {
         const { id, title, article, authorName, comments, authorId } = this.props.post;
+        console.log(authorId, this.props.auth.userId)
         return (
             <div className='feed-container'>
                 <Notification isVisible={this.state.isVisible} notification={this.props.notification} />
@@ -48,9 +50,9 @@ class ArticlePostDetail extends Component {
                                 <div className='col-xs-6'>
                                     {
                                         // eslint-disable-next-line eqeqeq
-                                        this.props.auth.userId == authorId &&
+                                        sessionStorage.getItem('userId') == authorId &&
                                         <span>
-                                            <FontAwesomeIcon className='float-right f-icon' icon={faPencilAlt} />
+                                            <Link to={`/dashboard/article/edit/${id}`} ><FontAwesomeIcon className='float-right f-icon' icon={faPencilAlt} /></Link>
                                             <FontAwesomeIcon className='float-right f-icon' icon={faTrashAlt} />
                                         </span>
                                     }
