@@ -20,7 +20,7 @@ class Comments extends Component {
                         comment: '',
                     });
                 }}>
-                    <textarea className='form-input' id='comment' value={this.state.comment} onChange={this.handleTextChange}></textarea>
+                    <textarea className='form-input' id='comment' value={this.state.comment} onChange={this.handleTextChange} required></textarea>
 
                     <div className='row'>
                         <div className='col-xs-12'>

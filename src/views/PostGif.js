@@ -79,7 +79,7 @@ class PostGif extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        notification: state.article.notification,
+        notification: state.gif.notification,
         auth: state.auth.auth,
     }
 }

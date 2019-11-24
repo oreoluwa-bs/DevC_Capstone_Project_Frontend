@@ -23,6 +23,7 @@ class PostArticle extends Component {
             })
         }, 3000);
         this.props.history.push('/dashboard/')
+
     }
 
     handleTextChange = (e) => {
@@ -43,11 +44,11 @@ class PostArticle extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className='form-group'>
                             <p>Title:</p>
-                            <input type='text' className='form-input' id='title' placeholder='Hello World...' value={this.state.title} onChange={this.handleTextChange} autoFocus />
+                            <input type='text' className='form-input' id='title' placeholder='Hello World...' value={this.state.title} onChange={this.handleTextChange} autoFocus required />
                         </div>
                         <div className='form-group'>
                             <p>Content:</p>
-                            <textarea className='form-input' id='article' value={this.state.article} onChange={this.handleTextChange}></textarea>
+                            <textarea className='form-input' id='article' value={this.state.article} onChange={this.handleTextChange} required></textarea>
                         </div>
                         <div className='form-group'>
                             <div className='row'>

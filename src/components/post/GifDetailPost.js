@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { commentPost, getGif } from '../../store/actions/gifActions';
+import { commentPost, getGif, deletePost } from '../../store/actions/gifActions';
 import Comments from '../Comments';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Notification from '../Notification';
 
 class GifPostDetail extends Component {
@@ -31,6 +31,9 @@ class GifPostDetail extends Component {
         }, 3000);
     }
 
+    handleDeletePost = () => {
+        this.props.deletArticle(this.props.id);
+    }
 
     render() {
         const { id, title, imageUrl, authorName, comments, authorId } = this.props.post;
@@ -52,8 +55,7 @@ class GifPostDetail extends Component {
                                         // eslint-disable-next-line eqeqeq
                                         this.props.auth.userId == authorId &&
                                         <span>
-                                            <FontAwesomeIcon className='float-right f-icon' icon={faPencilAlt} />
-                                            <FontAwesomeIcon className='float-right f-icon' icon={faTrashAlt} />
+                                            <FontAwesomeIcon className='float-right f-icon' icon={faTrashAlt} onClick={this.handleDeletePost} />
                                         </span>
                                     }
 
@@ -87,11 +89,13 @@ const mapStateToProps = (state, ownProps) => {
         auth: state.auth.auth,
         id: ownProps.match.params.id,
         post: state.gif.post,
+        notification: state.gif.notification,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        deletArticle: (gifId) => dispatch(deletePost(gifId)),
         getGif: (gifId) => dispatch(getGif(gifId)),
         commentPost: (gifId, comment) => dispatch(commentPost(gifId, comment))
     }

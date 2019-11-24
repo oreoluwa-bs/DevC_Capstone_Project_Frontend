@@ -58,7 +58,6 @@
 
 .post .ima {
     width: 100%;
-    background-color: teal;
     height: 400px;
     margin-bottom: 5px;
 }
@@ -66,6 +65,10 @@
 .post .ima .post-img {
     width: inherit;
     height: inherit;
+}
+
+.del-icon{
+    margin: 0 10px;
 }
 
 @media screen and (max-width:575px){
