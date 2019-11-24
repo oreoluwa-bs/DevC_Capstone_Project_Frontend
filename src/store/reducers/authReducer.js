@@ -1,8 +1,8 @@
-const user = sessionStorage.getItem('userToken');
+const user = localStorage.getItem('userToken');
 let auth = null;
 if (user) {
     auth = {
-        userId: sessionStorage.getItem('userId'),
+        userId: localStorage.getItem('userId'),
         token: user
     }
 } else {
@@ -30,7 +30,6 @@ const authReducer = (state = initState, action) => {
             }
 
         case 'LOGIN_SUCCESS':
-            console.log(action.data.data)
             return {
                 ...state,
                 auth: action.data.data,
@@ -39,8 +38,8 @@ const authReducer = (state = initState, action) => {
             }
 
         case 'SIGNOUT_SUCCESS':
-            sessionStorage.removeItem('userToken');
-            sessionStorage.removeItem('userId');
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('userId');
             return {
                 ...state,
                 authError: null,
