@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { commentPost, getArticle } from '../../store/actions/articleActions';
+import { commentPost, getArticle, deletePost } from '../../store/actions/articleActions';
 import Comments from '../Comments';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
@@ -32,9 +32,23 @@ class ArticlePostDetail extends Component {
         }, 3000);
     }
 
+    handleDeletePost = () => {
+        this.props.deletArticle(this.props.id);
+        setTimeout(() => {
+            this.setState({
+                isVisible: !this.state.isVisible
+            })
+            setTimeout(() => {
+                this.setState({
+                    isVisible: !this.state.isVisible
+                })
+            }, 3000);
+        }, 200);
+        this.props.history.push('/dashboard/')
+    }
+
     render() {
         const { id, title, article, authorName, comments, authorId } = this.props.post;
-        console.log(authorId, this.props.auth.userId)
         return (
             <div className='feed-container'>
                 <Notification isVisible={this.state.isVisible} notification={this.props.notification} />
@@ -50,10 +64,10 @@ class ArticlePostDetail extends Component {
                                 <div className='col-xs-6'>
                                     {
                                         // eslint-disable-next-line eqeqeq
-                                        sessionStorage.getItem('userId') == authorId &&
+                                        this.props.auth.userId == authorId &&
                                         <span>
-                                            <Link to={`/dashboard/article/edit/${id}`} ><FontAwesomeIcon className='float-right f-icon' icon={faPencilAlt} /></Link>
-                                            <FontAwesomeIcon className='float-right f-icon' icon={faTrashAlt} />
+                                            <Link to={`/dashboard/article/edit/${id}`} ><FontAwesomeIcon className='float-right f-icon del-icon' icon={faPencilAlt} /></Link>
+                                            <FontAwesomeIcon className='float-right f-icon' icon={faTrashAlt} onClick={this.handleDeletePost}/>
                                         </span>
                                     }
                                 </div>
@@ -85,12 +99,13 @@ const mapStateToProps = (state, ownProps) => {
         auth: state.auth.auth,
         id: ownProps.match.params.id,
         post: state.article.post,
-        notification: state.gif.notification,
+        notification: state.article.notification,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        deletArticle: (gifId) => dispatch(deletePost(gifId)),
         getArticle: (gifId) => dispatch(getArticle(gifId)),
         commentPost: (gifId, comment) => dispatch(commentPost(gifId, comment))
     }

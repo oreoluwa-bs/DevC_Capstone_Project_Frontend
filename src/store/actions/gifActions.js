@@ -91,3 +91,31 @@ export const createGif = (credentials) => {
             });
     }
 }
+
+export const deletePost = (id) => {
+    return (dispatch, getState) => {
+        const request = new Request(`${baseURL + path}/${id}`, {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${sessionStorage.getItem('userToken')}`
+            })
+        });
+        fetch(request)
+            .then((response) => {
+                response.json()
+                    .then((res) => {
+                        if (res.status === 'error') {
+                            dispatch({ type: 'DELETE_GIF_FAILED', data: res });
+                        } else {
+                            dispatch({ type: 'DELETE_GIF_SUCCESS', data: res });
+                        }
+                    })
+                    .catch((err) => {
+                        dispatch({ type: 'DELETE_GIF_FAILED', data: err });
+                    });
+            }).catch((err) => {
+                dispatch({ type: 'DELETE_GIF_FAILED', data: err });
+            });
+    }
+}

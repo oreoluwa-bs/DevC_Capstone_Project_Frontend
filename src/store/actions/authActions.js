@@ -1,4 +1,4 @@
-export const baseURL = 'http://localhost:5000/api/v1/';
+export const baseURL = 'https://rocky-waters-58005.herokuapp.com/api/v1/';
 
 const path = 'auth';
 

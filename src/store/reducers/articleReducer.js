@@ -14,48 +14,48 @@ const articleReducer = (state = initState, action) => {
             return {
                 ...state,
                 notification: {
-                    status: 'error',
-                    message: 'Article failed to edit'
+                    status: action.data.status,
+                    message: action.data.data.message
                 },
             }
         case 'EDIT_ARTICLE_SUCCESS':
             return {
                 ...state,
                 notification: {
-                    status: 'success',
-                    message: 'You have edited an article'
+                    status: action.data.status,
+                    message: action.data.data.message
                 },
             }
         case 'CREATE_ARTICLE_FAILED':
             return {
                 ...state,
                 notification: {
-                    status: 'error',
-                    message: 'Article failed to post'
+                    status: action.data.status,
+                    message: action.data.data.message
                 },
             }
         case 'DELETE_ARTICLE_SUCCESS':
             return {
                 ...state,
                 notification: {
-                    status: 'success',
-                    message: 'You have deleted an article'
+                    status: action.data.status,
+                    message: action.data.data.message
                 },
             }
         case 'DELETE_ARTICLE_FAILED':
             return {
                 ...state,
                 notification: {
-                    status: 'error',
-                    message: 'Article failed to delete'
+                    status: action.data.status,
+                    message: action.data.data.message
                 },
             }
         case 'CREATE_ARTICLE_SUCCESS':
             return {
                 ...state,
                 notification: {
-                    status: 'success',
-                    message: 'You have posted an article'
+                    status: action.data.status,
+                    message: action.data.data.message
                 },
             }
         case 'GET_ARTICLE_FAILED':
